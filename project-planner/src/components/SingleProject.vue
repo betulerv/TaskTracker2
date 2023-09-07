@@ -1,18 +1,20 @@
 <template>
-  <div class="project" :class="{ complete: project.complete }">
+  <div class="project" :class="{ complete: project.complete}">
     <div class="actions">
       <h3 @click="showDetail">{{ project.title }}</h3>
       <div class="icons">
         <router-link
           :to="{ name: 'EditProject', params: { id: project.id } }"
-          ><span class="material-icons">edit</span></router-link
+          ><span :class="project.owner ? 'material-icons owner' : 'material-icons'">edit</span></router-link
         >
         <span @click="projectDelete" class="material-icons">delete</span>
         <span @click="projectComplete" class="material-icons tick">done</span>
       </div>
     </div>
     <div v-if="showDetails" class="details">
-      <p>{{ project.details }}</p>
+      <p>{{ project.details }} </p>
+      <br>
+      <p>Görev Sahibi: {{ project.owner }} </p>
     </div>
   </div>
 </template>
@@ -80,5 +82,9 @@ h3 {
 }
 .project.complete .tick {
   color: green;
+}
+
+.owner {
+  color: #c90808;
 }
 </style>

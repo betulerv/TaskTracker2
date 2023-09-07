@@ -3,6 +3,11 @@
     <button @click="updateFilter('all')" :class="{active:current === 'all'}">All Project</button>
     <button @click="updateFilter('completed')" :class="{active:current === 'completed'}">Completed Project</button>
     <button @click="updateFilter('ongoing')" :class="{active:current === 'ongoing'}">Ongoing Project</button>
+    <nav class="center">
+    <button @click="updateFilter('assigned')" :class="{active:current === 'assigned'}">Assigned Project</button>
+    <button @click="updateFilter('unassigned')" :class="{active:current === 'unassigned'}">Unassigned Project</button>
+    </nav>
+
   </nav>
 </template>
 
@@ -32,5 +37,9 @@ export default {
     }
     .filter-nav button.active {
         color: #555;
+    }
+    .center {
+      padding: 0px;
+      text-align: center;
     }
 </style>

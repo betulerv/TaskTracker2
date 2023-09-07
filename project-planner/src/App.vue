@@ -1,14 +1,24 @@
 <template>
   <div>
-    <Navbar />
+    <div>
+      <SideBar />
+    </div>
+
+    <nav>
+      <TopMenu />
+    </nav>
     <router-view />
+    <BottomBar></BottomBar>
+    
   </div>
 </template>
 
 <script>
-import Navbar from "./components/Navbar.vue";
+import BottomBar from "./components/BottomBar.vue";
+import SideBar from "./components/SideBar.vue";
+import TopMenu from "./components/TopMenu.vue";
 export default {
-  components: { Navbar },
+  components: {BottomBar, SideBar, TopMenu},
 };
 </script>
 
@@ -25,7 +35,7 @@ body {
   color: darkblue;
 }
 nav {
-  padding: 30px;
+  padding-top: 110px;
   font-size: 25px;
 }
 

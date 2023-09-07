@@ -17,7 +17,23 @@ const routes = [
     name: 'EditProject',
     component: () => import('../views/EditProject.vue'),
     props : true
-  }
+  },
+  {
+    path: '/addPerson',
+    name: 'AddPerson',
+    component: () => import('../views/AddPerson.vue')
+  },
+  {
+    path: '/persons',
+    name: 'Persons',
+    component: () => import('../views/Persons.vue')
+  },
+  {
+    path: '/editpersons/:id',
+    name: 'EditPersons',
+    component: () => import('../views/EditPersons.vue'),
+    props : true
+  },
 ]
 
 const router = createRouter({

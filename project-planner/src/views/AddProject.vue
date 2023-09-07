@@ -8,6 +8,11 @@
     <br />
     <textarea v-model="details" required></textarea>
     <br />
+
+    <label>Who's Job:</label>
+    <br />
+    <input type="text" v-model="owner" required />
+    <br />
     <button>Add Project</button>
   </form>
 </template>
@@ -18,6 +23,7 @@ export default {
     return {
       title: "",
       details: "",
+      owner: ""
     };
   },
   methods: {
@@ -25,6 +31,7 @@ export default {
       let newProject = {
         title: this.title,
         details: this.details,
+        owner: this.owner,
         complete: false,
       };
       fetch("http://localhost:3000/projects", {

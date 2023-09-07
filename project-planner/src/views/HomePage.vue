@@ -47,10 +47,23 @@ export default {
         return this.projects.filter((project) => project.complete);
       } else if (this.current === "ongoing") {
         return this.projects.filter((project) => !project.complete);
-      } else {
+      } else if(this.current == "assigned") {
+        return this.projects.filter((project) => project.owner);
+      } else if(this.current == "unassigned") {
+        return this.projects.filter((project) => !project.owner);
+      }
+
+      else {
         return this.projects;
       }
     },
   },
 };
 </script>
+<style>
+.homePage{
+  overflow: scroll;
+  position: absolute;
+  top: 75px;
+}
+</style>

@@ -1,8 +1,17 @@
 <template>
-  <nav class="main-nav">
-    <router-link :to="{ name: 'HomePage' }">Projects</router-link> |
+ 
+    <router-link :to="{ name: 'HomePage' }">Projects</router-link> 
+    <br>
     <router-link :to="{ name: 'AddProject' }">Add New Project</router-link>
-  </nav>
+    <br> 
+    <router-link :to="{ name: 'AddPerson' }">Add Person</router-link>
+    <br>
+    <router-link :to="{ name: 'Persons' }">Persons</router-link>
+
+  <!-- <nav class="bottom-nav">
+    <router-link :to="{ name: 'HomePage' }">bottom</router-link> |
+    <router-link :to="{ name: 'AddProject' }">menu </router-link>
+  </nav> -->
 </template>
 
 <script>
@@ -11,19 +20,28 @@ export default {};
 
 <style>
 .main-nav {
-  text-align: center;
-  margin: 40px auto;
+   text-align: left; 
+  /* margin: 40px auto; */
+  /* white-space: nowrap; */
 }
 .main-nav a {
-  display: inline-block;
+  display: flex;
   text-decoration: none;
-  margin: 0 10px;
+  margin: 0 0px;
   color: darkslategray;
-  font-size: 25px;
+  /* font-size: 20px; */
+  /* margin-top: 20px; */
 }
 a.router-link-active {
   border-bottom: 3px solid indigo;
   padding-bottom: 4px;
   color: darkslateblue;
 }
+/* .bottom-nav a {
+  display: inline-block;
+  text-decoration: none;
+  margin: 0 10px;
+  color: darkslategray;
+  font-size: 25px;
+} */
 </style>

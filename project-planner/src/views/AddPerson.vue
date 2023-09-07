@@ -1,48 +1,52 @@
 <template>
-  <form @submit.prevent="editProjectSubmit">
-    <label>Title:</label>
+  <form @submit.prevent="personSubmit">
+    <label>Name:</label>
     <br />
-    <input type="text" v-model="title" required />
+    <input type="text" v-model="name" required />
     <br />
-    <label>Details:</label>
+    <label>Surname:</label>
     <br />
-    <textarea v-model="details" required></textarea>
+    <input type="text" v-model="surname" required />
     <br />
-    <label>Who's Job:</label>
+    <label>Email:</label>
     <br />
-    <input type="text" v-model="owner" required />
+    <input type="text" v-model="email" required />
     <br />
-    <button>Update Project</button>
+    <label>Phone:</label>
+    <br />
+    <input type="text" v-model="phone" required />
+    <br />
+   
+      <button>Add Person</button>
+    
   </form>
 </template>
 
 <script>
 export default {
-  props: ["id"],
   data() {
     return {
-      title: "",
-      details: "",
-      uri: "http://localhost:3000/projects/" + this.id,
-      owner:""
+      name: "",
+      surname: "",
+      email: "",
+      phone: ""
     };
   },
-  mounted() {
-    fetch(this.uri)
-      .then((res) => res.json())
-      .then((data) => {
-        (this.title = data.title), (this.details = data.details), (this.owner = data.owner);
-      });
-  },
   methods: {
-    editProjectSubmit() {
-      fetch(this.uri, {
-        method: "PATCH",
+    personSubmit() {
+      let newPerson = {
+        name: this.name,
+      surname: this.surname,
+      email: this.email,
+      phone: this.phone
+      };
+      fetch("http://localhost:3000/persons", {
+        method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ title: this.title, details: this.details, owner: this.owner }),
+        body: JSON.stringify(newPerson),
       })
-        .then(() => this.$router.push("/HomePage"))
-        .catch((err) => console.log(err.message));
+        .then(() => this.$router.push("/homePage"))
+        .catch((err) => console.log(err.name));
     },
   },
 };
